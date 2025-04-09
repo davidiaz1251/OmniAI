@@ -22,7 +22,10 @@ export class AppMenu {
         this.model = [
             {
                 label: 'Home',
-                items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/'] }]
+                items: [
+                    { label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/'] },
+                    { label: 'Upload File', icon: 'pi pi-fw pi-file', routerLink: ['/pages/upload'] }
+                ]
             },
             {
                 label: 'UI Components',
@@ -92,66 +95,50 @@ export class AppMenu {
                     }
                 ]
             },
-            {
-                label: 'Hierarchy',
-                items: [
-                    {
-                        label: 'Submenu 1',
-                        icon: 'pi pi-fw pi-bookmark',
-                        items: [
-                            {
-                                label: 'Submenu 1.1',
-                                icon: 'pi pi-fw pi-bookmark',
-                                items: [
-                                    { label: 'Submenu 1.1.1', icon: 'pi pi-fw pi-bookmark' },
-                                    { label: 'Submenu 1.1.2', icon: 'pi pi-fw pi-bookmark' },
-                                    { label: 'Submenu 1.1.3', icon: 'pi pi-fw pi-bookmark' }
-                                ]
-                            },
-                            {
-                                label: 'Submenu 1.2',
-                                icon: 'pi pi-fw pi-bookmark',
-                                items: [{ label: 'Submenu 1.2.1', icon: 'pi pi-fw pi-bookmark' }]
-                            }
-                        ]
-                    },
-                    {
-                        label: 'Submenu 2',
-                        icon: 'pi pi-fw pi-bookmark',
-                        items: [
-                            {
-                                label: 'Submenu 2.1',
-                                icon: 'pi pi-fw pi-bookmark',
-                                items: [
-                                    { label: 'Submenu 2.1.1', icon: 'pi pi-fw pi-bookmark' },
-                                    { label: 'Submenu 2.1.2', icon: 'pi pi-fw pi-bookmark' }
-                                ]
-                            },
-                            {
-                                label: 'Submenu 2.2',
-                                icon: 'pi pi-fw pi-bookmark',
-                                items: [{ label: 'Submenu 2.2.1', icon: 'pi pi-fw pi-bookmark' }]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                label: 'Get Started',
-                items: [
-                    {
-                        label: 'Documentation',
-                        icon: 'pi pi-fw pi-book',
-                        routerLink: ['/documentation']
-                    },
-                    {
-                        label: 'View Source',
-                        icon: 'pi pi-fw pi-github',
-                        url: 'https://github.com/primefaces/sakai-ng',
-                        target: '_blank'
-                    }
-                ]
-            }
+            // {
+            //     label: 'Hierarchy',
+            //     items: [
+            //         {
+            //             label: 'Submenu 1',
+            //             icon: 'pi pi-fw pi-bookmark',
+            //             items: [
+            //                 {
+            //                     label: 'Submenu 1.1',
+            //                     icon: 'pi pi-fw pi-bookmark',
+            //                     items: [
+            //                         { label: 'Submenu 1.1.1', icon: 'pi pi-fw pi-bookmark' },
+            //                         { label: 'Submenu 1.1.2', icon: 'pi pi-fw pi-bookmark' },
+            //                         { label: 'Submenu 1.1.3', icon: 'pi pi-fw pi-bookmark' }
+            //                     ]
+            //                 },
+            //                 {
+            //                     label: 'Submenu 1.2',
+            //                     icon: 'pi pi-fw pi-bookmark',
+            //                     items: [{ label: 'Submenu 1.2.1', icon: 'pi pi-fw pi-bookmark' }]
+            //                 }
+            //             ]
+            //         },
+            //         {
+            //             label: 'Submenu 2',
+            //             icon: 'pi pi-fw pi-bookmark',
+            //             items: [
+            //                 {
+            //                     label: 'Submenu 2.1',
+            //                     icon: 'pi pi-fw pi-bookmark',
+            //                     items: [
+            //                         { label: 'Submenu 2.1.1', icon: 'pi pi-fw pi-bookmark' },
+            //                         { label: 'Submenu 2.1.2', icon: 'pi pi-fw pi-bookmark' }
+            //                     ]
+            //                 },
+            //                 {
+            //                     label: 'Submenu 2.2',
+            //                     icon: 'pi pi-fw pi-bookmark',
+            //                     items: [{ label: 'Submenu 2.2.1', icon: 'pi pi-fw pi-bookmark' }]
+            //                 }
+            //             ]
+            //         }
+            //     ]
+            // },
         ];
     }
 }

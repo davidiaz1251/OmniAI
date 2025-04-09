@@ -1,0 +1,20 @@
+<p-fluid>
+    <div class="flex flex-col md:flex-row gap-8">
+        <div class="md:w-full">
+            <div class="card flex flex-col gap-4">
+                <h2 class="text-2xl font-bold">Upload albaran</h2>
+                <div class="flex flex-col gap-4 items-center justify-center">
+                    <p-fileupload #fu mode="advanced" name="demo[]" [customUpload]="true" accept="image/*"
+                        maxFileSize="5000000" (uploadHandler)="onUpload($event)" chooseLabel="Elegir"
+                        uploadLabel="Subir" chooseIcon="pi pi-upload" uploadIcon="pi pi-check" />
+                    <!-- <p-button label="Upload" (onClick)="fu.upload()" severity="secondary" /> -->
+                </div>
+            </div>
+            <div class="card flex flex-col gap-4">
+                <div *ngIf="cargando" class="text-blue-600">Procesando imagen...</div>
+                <pre *ngIf="resultado">{{ resultado }}</pre>
+            </div>
+        </div>
+    </div>
+</p-fluid>
+<p-toast></p-toast>
