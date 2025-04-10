@@ -1,6 +1,6 @@
 import type { IncomingMessage, ServerResponse } from 'http';
 
-export default async function handler(req: IncomingMessage & { body?: any }, res: ServerResponse & { json?: Function }) {
+async function handler(req: IncomingMessage & { body?: any }, res: ServerResponse & { json?: Function }) {
   const buffers: Uint8Array[] = [];
 
   try {
@@ -77,3 +77,5 @@ export default async function handler(req: IncomingMessage & { body?: any }, res
     res.end(JSON.stringify({ error: 'Server error', detail: error.message }));
   }
 }
+
+module.exports = handler;
