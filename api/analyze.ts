@@ -1,14 +1,9 @@
 import type { IncomingMessage, ServerResponse } from 'http';
 
-export const config = {
-  runtime: 'nodejs'
-};
-
 export default async function handler(req: IncomingMessage & { body?: any }, res: ServerResponse & { json?: Function }) {
   const buffers: Uint8Array[] = [];
 
   try {
-    // Leer el body de la petición manualmente (porque Node.js puro no lo parsea solo)
     for await (const chunk of req) {
       buffers.push(chunk);
     }
@@ -43,21 +38,21 @@ export default async function handler(req: IncomingMessage & { body?: any }, res
             content: [
               {
                 type: 'text',
-                  text: `Extrae los datos importantes de esta factura o albarán y devuélvelos en JSON con el siguiente formato:
-  {
-    "cliente": "...",
-    "numero_factura": "...",
-    "direccion": "...",
-    "productos": [
-      {
-        "referencia": "...",
-        "nombre": "...",
-        "cantidad": ...,
-        "precio_unitario": ...,
-        "total": ...
-      }
-    ]
-  }`
+                text: `Extrae los datos importantes de esta factura o albarán y devuélvelos en JSON con el siguiente formato:
+{
+  "cliente": "...",
+  "numero_factura": "...",
+  "direccion": "...",
+  "productos": [
+    {
+      "referencia": "...",
+      "nombre": "...",
+      "cantidad": ...,
+      "precio_unitario": ...,
+      "total": ...
+    }
+  ]
+}`
               },
               {
                 type: 'image_url',
@@ -73,7 +68,6 @@ export default async function handler(req: IncomingMessage & { body?: any }, res
     });
 
     const result = await response.json();
-
     res.setHeader('Content-Type', 'application/json');
     res.statusCode = response.status;
     res.end(JSON.stringify(result));
