@@ -1,7 +1,6 @@
-import type { IncomingMessage, ServerResponse } from 'http';
 
-async function handler(req: IncomingMessage & { body?: any }, res: ServerResponse & { json?: Function }) {
-  const buffers: Uint8Array[] = [];
+module.exports = async function handler(req, res) {
+  const buffers = [];
 
   try {
     for await (const chunk of req) {
@@ -17,7 +16,7 @@ async function handler(req: IncomingMessage & { body?: any }, res: ServerRespons
       return;
     }
 
-    const openaiKey = process.env['OPENAI_API_KEY'];
+    const openaiKey = process.env.OPENAI_API_KEY;
     if (!openaiKey) {
       res.statusCode = 500;
       res.end(JSON.stringify({ error: 'API key not configured' }));
@@ -71,11 +70,9 @@ async function handler(req: IncomingMessage & { body?: any }, res: ServerRespons
     res.setHeader('Content-Type', 'application/json');
     res.statusCode = response.status;
     res.end(JSON.stringify(result));
-  } catch (error: any) {
+  } catch (error) {
     console.error('❌ Error en /api/analyze:', error);
     res.statusCode = 500;
     res.end(JSON.stringify({ error: 'Server error', detail: error.message }));
   }
-}
-
-module.exports = handler;
+};
