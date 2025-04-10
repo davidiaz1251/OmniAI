@@ -7,14 +7,12 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root'
 })
 export class OpenaiService extends BaseHttpService {
-  private apiKey = environment.openaiApiKey
-
 
   constructor(http: HttpClient) {
     super(http);
   }
 
   analizarImagen(base64: string) {
-    return this.post('/api/analyze', { base64 }); 
+    return this.post(environment.urlBackend, { base64 }); 
   }
 }
