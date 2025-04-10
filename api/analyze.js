@@ -62,7 +62,8 @@ module.exports = async function handler(req, res) {
             ]
           }
         ],
-        max_tokens: 2000
+        max_tokens: 2000,
+        stream: false
       })
     });
 
